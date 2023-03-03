@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="vue.js"></script>
+  </head>
+  <body>
+    <div class="nali">
+     <ul>
+        <li v-for="p in persons" :key="p.id">{{p}}</li>/p的值如果是两个就可以在的二个参数获得索引号，三个则一一对应元素
+     </ul>
+    <script>
+      Vue.config.productionTip = false;
+      new Vue({
+        el: ".nali",
+        data() {
+          return {
+            persons:[
+                {id:"1",name:"张三"},
+                { id:"1",name:"张三"}
+            ]
+          };
+        },
+        methods: {
+          fullName() {
+            return this.firstName + this.lastName;
+          },
+        },
+      });
+      //key的作用
+      //虚拟dom中的key的作用：
+      //key是虚拟dom对象的标识，当数据发生变化时，vue会根据新数据生成新的虚拟dom
+      //随后vue进行新的虚拟dom与旧的虚拟dom的差异比较，比较规则如下
+      //对比规则：
+      //旧的虚拟dom中找到了与新的虚拟dom相同的key
+       //若虚拟的dom中的内容没变，会直接使用之前的真实dom
+       //若虚拟的dom中的内容变了，则生成新的真实dom，随后替换掉页面之前的真实dom
+      //旧的虚拟dom未找到与新的虚拟dom的相同的key
+       //创建新的真实dom，随后渲染到页面
+      //用index作为key可能会引起的问题
+       //若数据进行：逆序添加，逆序删除等破坏顺序操作
+        //会产生没有必要的真实的dom更新==效率会变得很低
+       //如果结构中还包含输入类的dom
+         //会产生错误的dom更新 === 页面会出现问题
+      //对于inde只要没出现破坏顺序的操作还是可以用的，但是没有必要，我们还是以唯一的id为主
+      
+    </script>
+  </body>
+</html>

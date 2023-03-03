@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+  
+    <canvas id="canvas" width="1500px" height="1500px"></canvas>
+    <script type="application/javascript">
+      /** @type {HTMLCanvasElement} */
+      let canvas = document.querySelector("#canvas")
+      let ctx = canvas.getContext("2d")
+      function draw (a,b,c,d,i){
+     ctx.beginPath()
+     ctx.arc(a,b,c,d,i,false)
+     ctx.lineWidth = 8
+     ctx.stroke()
+     ctx.closePath()
+      }
+      draw(400,340,50,-Math.PI/2,Math.PI/2)
+      function huxiang(a,b,c,d,i){
+       ctx.beginPath()
+       ctx.arc(a,b,c,d,i,false)
+       ctx.lineWidth = 2
+       ctx.stroke()
+       ctx.beginPath()
+       ctx.arc(a,b-2*c,c,d,i,true)
+       ctx.lineWidth = 2
+       ctx.stroke()
+       ctx.closePath()
+      }
+      for (let index = 0; index < 25; index++) {
+        huxiang(120+index*10,150,25,-Math.PI/2,Math.PI/2)
+      }
+    
+      function rect (a,b,c,d,color,changdu){
+        ctx.beginPath()
+        ctx.lineWidth = changdu
+        ctx.strokeStyle = color
+        ctx.strokeRect(a,b,c,d)
+        ctx.stroke()
+        ctx.closePath
+      }
+      rect(100,200,300,300,"green","10")
+      let q = 20
+      let w = 20
+      let e = 10
+      let b = 1
+     setInterval(function(){
+     ctx.clearRect(0,0,1500,1500)
+    
+if(w+e >= canvas.width || w-e<= 0){
+  b=-b
+}
+w = w + b
+yundong(q,w,e)
+     },2)
+     function yundong(q,w,e){
+      ctx.beginPath()
+      ctx.arc(q,w,e,0,Math.PI*2,true)
+      ctx.fill()
+      ctx.fillStyle = "green"
+      ctx.closePath()
+     }
+    </script>
+
+</html>

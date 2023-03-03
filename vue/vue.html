@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="vue.js"></script>
+  </head>
+  <body>
+    <div class="oo" :href="url">
+      <h1>hello,{{name}}</h1>
+    </div>
+    <script type="text/javascript">
+      Vue.config.productionTip = false;
+      let v = new Vue({
+        //el: ".oo",
+        //data: {
+        //  name: "nimei",
+        //url:"baidu"
+        // },
+        data: function () {
+          return {
+            name: "nimei",
+            url: "baidu",
+          };
+        },
+      }); //一个容器只对应一个vue对象，也就是一一对应
+      //在{{}}中可以写一切js的表达式，也就是可以产生返回值得的一切js语句
+      //插入语法{{}}
+      //指令语法 v-bind: 简写直接写：
+      //使用v-bind数据绑定是单向的
+      //v-model可义实现双向绑定，但这仅仅只是针对表单元素，他们都有value的属性
+      // <input type="text" v-model="name">
+      v.$mount(".oo"); //获取容器jiantou
+    </script>
+  </body>
+</html>

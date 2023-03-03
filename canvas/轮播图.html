@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .luenbo {
+        position: absolute;
+        left: 200px;
+        top: 200px;
+        width: 300px;
+        height: 200px;
+        border: 1px black solid;
+        overflow: hidden;
+      }
+      .xia {
+        height: 30px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-15px);
+        z-index: 7;
+      }
+      .shang {
+        height: 30px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-15px);
+        z-index: 7;
+      }
+      .geshu {
+        width: 30px;
+        height: 20px;
+        border: 1px skyblue solid;
+        position: absolute;
+        bottom: 3px;
+        left: 50%;
+        transform: translateX(-15px);
+      }
+      .buju {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all 2s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="luenbo">
+      <button class="xia">下一页</button>
+      <button class="shang">上一页</button>
+    </div>
+    <script>
+      let luen = document.querySelector(".luenbo");
+      for (i = 0; i < 6; i++) {
+        let yuanshu = document.createElement("div");
+        luen.appendChild(yuanshu);
+      }
+      console.log(luen.children);
+      let shecai = [
+        "white",
+        "white",
+        "red",
+        "skyblue",
+        "green",
+        "blue",
+        "black",
+        "yellow",
+      ];
+      let shuzu = ["6", "5", "4", "3", "2", "1"];
+
+      let haizi = [...luen.children];
+      haizi.forEach((val, index) => {
+        val.style.backgroundColor = shecai[index];
+      });
+      for (let i = 2; i < 8; i++) {
+        haizi[i].className = "buju";
+        haizi[i].style.zIndex = shuzu[i];
+        console.log(i);
+      }
+      let xiaoshu = 2;
+      haizi[0].addEventListener("click", function () {
+        if (xiaoshu >= 7) {
+          return;
+        } else {
+          haizi[xiaoshu].style.width = "0%";
+          if (xiaoshu == 6) {
+            xiaoshu = 6;
+          } else {
+            xiaoshu++;
+          }
+          console.log(xiaoshu);
+        }
+      });
+      haizi[1].addEventListener("click", function () {
+        if (xiaoshu == 2) {
+          return;
+        } else if (xiaoshu == 7) {
+          xiaoshu = 8;
+        } else {
+          xiaoshu--;
+          console.log(xiaoshu);
+          haizi[xiaoshu].style.width = "100%";
+        }
+      });
+    </script>
+  </body>
+</html>

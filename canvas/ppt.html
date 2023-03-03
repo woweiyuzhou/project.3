@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .we {
+        opacity: 0;
+      }
+      section {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: all 2s;
+      }
+      .donghua {
+        width: 50%;
+        height: 100%;
+        transition: all 2s ease-in-out;
+      }
+      .yanshe1 {
+        position: absolute;
+        left: 0;
+      }
+      .yanshe2 {
+        position: absolute;
+        right: 0;
+      }
+      .oo {
+        position: absolute;
+        z-index: 7;
+        right: 0;
+      }
+      .pp {
+        position: absolute;
+        z-index: 7;
+        left: 0;
+      }
+      .she1 {
+        background-color: black;
+        color: aqua;
+      }
+      .she2 {
+        background-color: white;
+      }
+      .she3 {
+        background-color: red;
+      }
+      .she4 {
+        background-color: green;
+      }
+      .she5 {
+        background-color: skyblue;
+      }
+      .she6 {
+        background-color: aqua;
+      }
+      .she7 {
+        background-color: antiquewhite;
+      }
+      .she8 {
+        background-color: bisque;
+      }
+      .she9 {
+        background-color: black;
+      }
+      .she10 {
+        background-color: azure;
+      }
+      .she11 {
+        background-color: coral;
+      }
+      .she12 {
+        background-color: darkgoldenrod;
+      }
+      @keyframes watermove {
+        20% {
+          border-radius: 30% 70% 53% 47% / 28% 44% 56% 72%;
+        }
+
+        40% {
+          border-radius: 30% 70% 39% 61% / 34% 39% 61% 66%;
+          top: 30%;
+        }
+
+        60% {
+          border-radius: 25% 75% 45% 55% / 40% 55% 45% 60%;
+          top: 50%;
+        }
+
+        80% {
+          border-radius: 28% 72% 31% 69% / 32% 39% 61% 68%;
+          top: 70%;
+        }
+      }
+      .shuidi {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-250px, -250px);
+        z-index: 8;
+      }
+      .juzhen {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-250px, -250px);
+
+        background-color: rgba(40, 134, 241, 0.925);
+        box-sizing: border-box;
+        /* 设置弯曲 */
+        border-radius: 30% 70% 70% 30% / 30% 35% 65% 70%;
+        /* 设置box-shadow :水平方向阴影  垂直方向阴影  模糊距离  阴影尺寸  阴影颜色  内/外阴影(inset/outset(默认)) 
+            盒子阴影可以有多组值,之间用逗号隔开
+            水平阴影和垂直阴影必须写,其余4个是可选的*/
+        box-shadow: inset 10px 20px 30px rgba(0, 0, 0, 0.5),
+          10px 10px 20px rgba(0, 0, 0, 0.3), 15px 15px 30px rgba(0, 0, 0, 0.05),
+          inset -10px -10px 15px rgba(255, 255, 254, 0.83);
+        animation: watermove 9s linear infinite;
+      }
+      .juzhen::after {
+        content: "";
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        background: rgba(255, 255, 255, 0.82);
+        border-radius: 50%;
+        left: 60px;
+        top: 80px;
+        animation: watermove 4s linear infinite;
+      }
+      .juzhen::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.82);
+        border-radius: 50%;
+        left: 120px;
+        top: 55px;
+        /*使用关键帧  watermove  4s播放  匀速 无限循环*/
+        animation: watermove 4s linear infinite;
+      }
+      .juzhen div {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        animation: watermove 9s linear infinite;
+      }
+      .yidong1 {
+        top: -30px;
+        left: -40px;
+        background-color: rgba(40, 134, 241, 0.925);
+        box-sizing: border-box;
+        /* 设置弯曲 */
+        border-radius: 30% 70% 70% 30% / 30% 35% 65% 70%;
+        /* 设置box-shadow :水平方向阴影  垂直方向阴影  模糊距离  阴影尺寸  阴影颜色  内/外阴影(inset/outset(默认)) 
+            盒子阴影可以有多组值,之间用逗号隔开
+            水平阴影和垂直阴影必须写,其余4个是可选的*/
+        box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.5),
+          2px 2px 2px rgba(0, 0, 0, 0.3), 2px 2px 4px rgba(0, 0, 0, 0.05),
+          inset -2px -2px 2px rgba(255, 255, 254, 0.83);
+      }
+      .yidong2 {
+        top: 0;
+        right: 0;
+        background-color: rgba(40, 134, 241, 0.925);
+        box-sizing: border-box;
+        /* 设置弯曲 */
+        border-radius: 30% 70% 70% 30% / 30% 35% 65% 70%;
+        /* 设置box-shadow :水平方向阴影  垂直方向阴影  模糊距离  阴影尺寸  阴影颜色  内/外阴影(inset/outset(默认)) 
+            盒子阴影可以有多组值,之间用逗号隔开
+            水平阴影和垂直阴影必须写,其余4个是可选的*/
+        box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.5),
+          2px 2px 2px rgba(0, 0, 0, 0.3), 2px 2px 4px rgba(0, 0, 0, 0.05),
+          inset -2px -2px 2px rgba(255, 255, 254, 0.83);
+      }
+      .yidong3 {
+        top: 445px;
+        right: 0;
+        background-color: rgba(40, 134, 241, 0.925);
+        box-sizing: border-box;
+        /* 设置弯曲 */
+        border-radius: 30% 70% 70% 30% / 30% 35% 65% 70%;
+        /* 设置box-shadow :水平方向阴影  垂直方向阴影  模糊距离  阴影尺寸  阴影颜色  内/外阴影(inset/outset(默认)) 
+            盒子阴影可以有多组值,之间用逗号隔开
+            水平阴影和垂直阴影必须写,其余4个是可选的*/
+        box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.5),
+          2px 2px 2px rgba(0, 0, 0, 0.3), 2px 2px 4px rgba(0, 0, 0, 0.05),
+          inset -2px -2px 2px rgba(255, 255, 254, 0.83);
+      }
+      .yidong4 {
+        top: 445px;
+        left: 0;
+        background-color: rgba(40, 134, 241, 0.925);
+        box-sizing: border-box;
+        /* 设置弯曲 */
+        border-radius: 30% 70% 70% 30% / 30% 35% 65% 70%;
+        /* 设置box-shadow :水平方向阴影  垂直方向阴影  模糊距离  阴影尺寸  阴影颜色  内/外阴影(inset/outset(默认)) 
+            盒子阴影可以有多组值,之间用逗号隔开
+            水平阴影和垂直阴影必须写,其余4个是可选的*/
+        box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.5),
+          2px 2px 2px rgba(0, 0, 0, 0.3), 2px 2px 4px rgba(0, 0, 0, 0.05),
+          inset -2px -2px 2px rgba(255, 255, 254, 0.83);
+      }
+      .juzhen div::after {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.82);
+        border-radius: 50%;
+        left: 6px;
+        top: 8px;
+        /*使用关键帧  watermove  4s播放  匀速 无限循环*/
+        animation: watermove 4s linear infinite;
+      }
+      .juzhen div::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.82);
+        border-radius: 50%;
+        left: 12px;
+        top: 5px;
+        /*使用关键帧  watermove  4s播放  匀速 无限循环*/
+        animation: watermove 4s linear infinite;
+      }
+      @keyframes move {
+        25% {
+          top: 50px;
+          transform: rotateX(90deg);
+        }
+        50% {
+          top: 75px;
+          transform: rotateY(180deg);
+        }
+        75% {
+          top: 75px;
+          transform: rotateZ(270deg);
+        }
+        100% {
+          top: 100px;
+          transform: rotateX(360deg);
+        }
+      }
+      .father {
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        z-index: 8;
+
+        transform-style: preserve-3d;
+        animation: move 3s ease infinite;
+      }
+      .father div {
+        position: absolute;
+      }
+      .div1 {
+        width: 50px;
+        height: 50px;
+        background-color: skyblue;
+        transform: translateX(-25px) rotateY(90deg);
+      }
+      .div2 {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        transform: translateX(25px) rotateY(90deg);
+      }
+      .div3 {
+        width: 50px;
+        height: 50px;
+        background-color: orange;
+        transform: translateY(-25px) rotateX(90deg);
+      }
+      .div4 {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        transform: translateY(25px) rotateX(90deg);
+      }
+      .div5 {
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+        transform: translateZ(-25px);
+      }
+      .div6 {
+        width: 50px;
+        height: 50px;
+        background-color: green;
+        transform: translateZ(25px);
+      }
+      .luenbo {
+        position: absolute;
+        left: 200px;
+        top: 200px;
+        width: 300px;
+        height: 200px;
+        border: 1px black solid;
+        overflow: hidden;
+      }
+      .xia {
+        height: 30px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-15px);
+        z-index: 7;
+      }
+      .shang {
+        height: 30px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-15px);
+        z-index: 7;
+      }
+      .geshu {
+        width: 30px;
+        height: 20px;
+        border: 1px skyblue solid;
+        position: absolute;
+        bottom: 3px;
+        left: 50%;
+        transform: translateX(-15px);
+      }
+      .buju {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all 2s ease-in-out;
+      }
+      .luenbo {
+        position: absolute;
+        left: 200px;
+        top: 200px;
+        width: 300px;
+        height: 200px;
+        border: 1px black solid;
+        overflow: hidden;
+        z-index: 7;
+      }
+      .xia {
+        height: 30px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-15px);
+        z-index: 7;
+      }
+      .shang {
+        height: 30px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-15px);
+        z-index: 7;
+      }
+      .geshu {
+        width: 30px;
+        height: 20px;
+        border: 1px skyblue solid;
+        position: absolute;
+        bottom: 3px;
+        left: 50%;
+        transform: translateX(-15px);
+      }
+      .buju {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all 2s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="luenbo">
+      <button class="xia">下一页</button>
+      <button class="shang">上一页</button>
+    </div>
+    <div class="shuidi">
+      <div class="juzhen">
+        <div class="yidong1"></div>
+        <div class="yidong2"></div>
+        <div class="yidong3"></div>
+        <div class="yidong4"></div>
+      </div>
+    </div>
+    <section class="diyi">
+      <div class="donghua yanshe1 she1"></div>
+      <div class="donghua yanshe2 she2"></div>
+    </section>
+    <section class="dier">
+      <div class="donghua yanshe1 she3"></div>
+      <div class="donghua yanshe2 she4"></div>
+    </section>
+    <section class="disan">
+      <div class="donghua yanshe1 she5"></div>
+      <div class="donghua yanshe2 she6"></div>
+    </section>
+    <section class="disi">
+      <div class="donghua yanshe1 she7"></div>
+      <div class="donghua yanshe2 she8"></div>
+    </section>
+    <section class="diwu">
+      <div class="donghua yanshe1 she9"></div>
+      <div class="donghua yanshe2 she10"></div>
+    </section>
+    <section class="diliu">
+      <div class="donghua yanshe1 she11"></div>
+      <div class="donghua yanshe2 she12"></div>
+    </section>
+    <button class="pp">下一页</button>
+    <button class="oo">上一页</button>
+    <script>
+      console.log(window);
+      let section = document.querySelectorAll("section");
+      document.body.style.width = innerWidth + "px";
+      document.body.style.height = innerHeight + "px";
+      let button = document.querySelector(".pp");
+      let oo = document.querySelector(".oo");
+      let section1 = [...section];
+      let arr = [6, 5, 4, 3, 2, 1];
+
+      section1.forEach((a, b) => {
+        a.style.zIndex = arr[b];
+      });
+      let shizi = 0;
+      button.addEventListener("click", function () {
+        if (shizi == section1.length) {
+          return true;
+        } else {
+          section1[shizi].style.opacity = "0";
+          let son = [...section1[shizi].children];
+          son.forEach((b) => {
+            b.style.width = "0%";
+          });
+          console.log(shizi);
+          shizi++;
+        }
+      });
+      oo.addEventListener("click", function () {
+        if (shizi <= 0) {
+          shizi = 0;
+        } else {
+          shizi--;
+        }
+        if (shizi < 0) {
+          return true;
+        } else {
+          section1[shizi].style.opacity = "1";
+          let son = [...section1[shizi].children];
+          son.forEach((b) => {
+            b.style.width = "50%";
+          });
+        }
+        console.log(shizi);
+      });
+    </script>
+    <div class="father">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <script>
+      let div = document.querySelector(".father");
+      let haizi = [...div.children];
+      let shuxing = ["div1", "div2", "div3", "div4", "div5", "div6"];
+      haizi.forEach((el, sl) => [(el.className = shuxing[sl])]);
+    </script>
+    <script>
+      let luen = document.querySelector(".luenbo");
+      for (i = 0; i < 6; i++) {
+        let yuanshu = document.createElement("div");
+        luen.appendChild(yuanshu);
+      }
+      console.log(luen.children);
+      let shecai = [
+        "white",
+        "white",
+        "red",
+        "skyblue",
+        "green",
+        "blue",
+        "black",
+        "yellow",
+      ];
+      let shuzu = ["6", "5", "4", "3", "2", "1"];
+
+      let haizi1 = [...luen.children];
+      haizi1.forEach((val, index) => {
+        val.style.backgroundColor = shecai[index];
+      });
+      for (let i = 2; i < 8; i++) {
+        haizi1[i].className = "buju";
+        haizi1[i].style.zIndex = shuzu[i];
+        console.log(i);
+      }
+      let xiaoshu = 2;
+      haizi1[0].addEventListener("click", function () {
+        if (xiaoshu >= 7) {
+          return;
+        } else {
+          haizi1[xiaoshu].style.width = "0%";
+          if (xiaoshu == 6) {
+            xiaoshu = 6;
+          } else {
+            xiaoshu++;
+          }
+          console.log(xiaoshu);
+        }
+      });
+      haizi1[1].addEventListener("click", function () {
+        if (xiaoshu == 2) {
+          return;
+        } else if (xiaoshu == 7) {
+          xiaoshu = 8;
+        } else {
+          xiaoshu--;
+          console.log(xiaoshu);
+          haizi1[xiaoshu].style.width = "100%";
+        }
+      });
+    </script>
+  </body>
+</html>

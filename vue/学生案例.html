@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="vue.js"></script>
+  </head>
+  <body>
+    <div class="nali">
+      性：<input type="text" v-bind:value="firstName" /><br />
+      名：<input type="text" v-model:value="lastName" /><br />
+      姓名：<span>{{fullName()}}</span>
+      <a v-big="n">liu</a>
+    </div>
+    <script>
+      Vue.config.productionTip = false;
+      new Vue({
+        el: ".nali",
+        data() {
+          return {
+            firstName: "张",
+            lastName: "三",
+            dizhi: "baidu.com",
+            n: "",
+          };
+        },
+        methods: {
+          fullName() {
+            return this.firstName + this.lastName;
+          },
+        },
+        directives: {
+          big(element, binding) {},
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      @keyframes move {
+        25% {
+          top: 50px;
+          transform: rotateX(90deg);
+        }
+        50% {
+          top: 75px;
+          transform: rotateY(180deg);
+        }
+        75% {
+          top: 75px;
+          transform: rotateZ(270deg);
+        }
+        100% {
+          top: 100px;
+          transform: rotateX(360deg);
+        }
+      }
+      .father {
+        position: absolute;
+        left: 100px;
+        top: 100px;
+
+        transform-style: preserve-3d;
+        animation: move 3s ease infinite;
+      }
+      .father div {
+        position: absolute;
+      }
+      .div1 {
+        width: 50px;
+        height: 50px;
+        background-color: skyblue;
+        transform: translateX(-25px) rotateY(90deg);
+      }
+      .div2 {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        transform: translateX(25px) rotateY(90deg);
+      }
+      .div3 {
+        width: 50px;
+        height: 50px;
+        background-color: orange;
+        transform: translateY(-25px) rotateX(90deg);
+      }
+      .div4 {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        transform: translateY(25px) rotateX(90deg);
+      }
+      .div5 {
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+        transform: translateZ(-25px);
+      }
+      .div6 {
+        width: 50px;
+        height: 50px;
+        background-color: green;
+        transform: translateZ(25px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <script>
+      let div = document.querySelector(".father");
+      let haizi = [...div.children];
+      let shuxing = ["div1", "div2", "div3", "div4", "div5", "div6"];
+      haizi.forEach((el, sl) => [(el.className = shuxing[sl])]);
+    </script>
+  </body>
+</html>

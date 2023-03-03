@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      style="margin: 100px auto; border: 1px solid black"
+      width="800px"
+      height="800px"
+    ></canvas>
+    <script>
+      /** @type {HTMLCanvasElement} */
+      let canvas = document.querySelector("#canvas");
+      let ctx = canvas.getContext("2d");
+      let arr = [];
+      class father {
+        constructor() {
+          this.yanshe();
+          this.random();
+          this.zuobiao();
+          this.xioaqiu();
+          this.yidong();
+          this.yundong();
+        }
+        yanshe() {
+          return `rgb(${Math.random() * 300 + 1},${Math.random() * 300 + 1},${
+            Math.random() * 300 + 1
+          })`;
+        }
+        random(num) {
+          return Math.random() * num;
+        }
+        zuobiao() {
+          this.x = this.random(800);
+          this.y = this.random(800);
+          this.r = this.random(30) + 10;
+        }
+        xioaqiu(a, b) {
+          this.zuobiao();
+          ctx.beginPath();
+          ctx.arc(a, b, this.r, 0, Math.PI * 2, true);
+          ctx.fillStyle = this.yanshe();
+          ctx.fill();
+          ctx.closePath;
+        }
+        yidong() {
+          this.xspeed = this.random(30);
+          this.yspeed = this.random(30);
+        }
+        yundong() {
+          setInterval(() => {
+            ctx.clearRect(0, 0, 800, 800);
+            for (let i = 0; i < 100; i++) {
+              this.xioaqiu(this.x, this.y);
+            }
+            if (this.x + this.r >= canvas.width || this.x - this.r <= 0) {
+              this.xspeed = -this.xspeed;
+            }
+            if (this.y + this.r >= canvas.width || this.y - this.r <= 0) {
+              this.yspeed = -this.yspeed;
+            }
+            this.x += this.xspeed;
+            this.y += this.yspeed;
+          }, 100);
+        }
+      }
+      let shili = new father();
+    </script>
+  </body>
+</html>
